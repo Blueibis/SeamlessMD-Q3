@@ -1,0 +1,12 @@
+<div class="patient-info">
+  <p>Name of patient: <%= @patient["identifier"][0]["name"][0]["given"][0] %> <%= @patient["identifier"][0]["name"][0]["family"][0] %></p>
+  <p>Organization name: <%= @patient["identifier"][0]["managingOrganization"]["display"] %></p>
+  <p>Gender: <%= @patient["identifier"][0]["gender"].capitalize %></p>
+  <p>Number of conditions they have: <%= @patient["identifier"][0]["conditions"].size %></p>
+  <p>List of all conditions:</p>
+  <ul>
+    <% @patient["identifier"][0]["conditions"].each do |condition| %>
+    <li><%= condition %></li>
+    <% end %>
+  </ul>
+</div>
